@@ -26,17 +26,25 @@
 #ifndef PXDDUMP_H
 #define PXDDUMP_H
 
+#include <stdio.h>
+
 /**
  * Compile-time constants.
  */
 
 static const int PXD_EXIT_OK = 0;
-static const int PXD_EXIT_FILE_OPEN_ERROR = 1;
-static const int PXD_EXIT_FILE_HEADER_READ_ERROR = 2;
-static const int PXD_EXIT_LAYER_HEADER_READ_ERROR = 3;
-static const int PXD_EXIT_LAYER_NAME_ALLOC_ERROR = 4;
-static const int PXD_EXIT_LAYER_NAME_READ_ERROR = 5;
-static const int PXD_EXIT_LAYER_DATA_ALLOC_ERROR = 6;
+static const int PXD_EXIT_WRONG_ARGS = 1;
+static const int PXD_EXIT_FILE_OPEN_ERROR = 2;
+static const int PXD_EXIT_FILE_INFLATE_ERROR = 3;
+static const int PXD_EXIT_TEMP_FILE_OPEN_ERROR = 4;
+static const int PXD_EXIT_FILE_HEADER_READ_ERROR = 5;
+static const int PXD_EXIT_LAYER_HEADER_READ_ERROR = 6;
+static const int PXD_EXIT_LAYER_NAME_ALLOC_ERROR = 7;
+static const int PXD_EXIT_LAYER_NAME_READ_ERROR = 8;
+static const int PXD_EXIT_LAYER_DATA_ALLOC_ERROR = 9;
+static const int PXD_EXIT_LAYER_DATA_READ_ERROR = 10;
+
+#define PXD_INFLATE_CHUNK_LEN 4096
 
 /**
  * Data structures.
@@ -74,7 +82,10 @@ struct pxd_layer {
  * Function prototypes.
  */
 
+FILE* pxd_get_temp_file();
+int pxd_inflate(FILE* pxd_file, FILE* file);
 int pxd_read_header(FILE* file, struct pxd_header* header);
 int pxd_read_layer(FILE* file, struct pxd_layer* layer);
+void pxd_export_layer(struct pxd_layer* layer);
 
 #endif /* PXDDUMP_H */

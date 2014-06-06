@@ -19,39 +19,57 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\pxddump.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\png.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngerror.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngget.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngmem.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngpread.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngread.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngrio.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngrtran.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngrutil.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngset.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngtrans.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngwio.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngwrite.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngwtran.c" />
+    <ClCompile Include="..\..\3rdparty\libpng\pngwutil.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\pxddump.h" />
+    <ClInclude Include="..\..\3rdparty\libpng\png.h" />
+    <ClInclude Include="..\..\3rdparty\libpng\pngconf.h" />
+    <ClInclude Include="..\..\3rdparty\libpng\pngdebug.h" />
+    <ClInclude Include="..\..\3rdparty\libpng\pnginfo.h" />
+    <ClInclude Include="..\..\3rdparty\libpng\pngpriv.h" />
+    <ClInclude Include="..\..\3rdparty\libpng\pngstruct.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A9FE505E-BA6B-4D6D-8B0C-6FA361D3C9B9}</ProjectGuid>
+    <ProjectGuid>{521C5933-CDE2-468F-B6D0-B2D35F9CDB21}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>pxddump</RootNamespace>
-    <ProjectName>pxddump</ProjectName>
+    <RootNamespace>libpng</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -74,40 +92,34 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\build\out\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
     <IntDir>$(SolutionDir)..\build\intermediates\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)..\build\out\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
-    <IntDir>$(SolutionDir)..\build\intermediates\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\build\out\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
     <IntDir>$(SolutionDir)..\build\intermediates\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)..\build\out\$(ProjectName)\$(Configuration)\$(PlatformName)\</OutDir>
-    <IntDir>$(SolutionDir)..\build\intermediates\$(ProjectName)\$(Configuration)\$(PlatformName)\</IntDir>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\3rdparty\libpng;$(SolutionDir)..\3rdparty\zlib;$(IntermediateOutputPath)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PNG_NO_SETJMP;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntermediateOutputPath);$(SolutionDir)..\3rdparty\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libpng.lib;zlib.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);$(OutDir)..\..\..\zlib\$(ConfigurationName)\$(PlatformName)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\3rdparty\libpng\scripts\pnglibconf.h.prebuilt" "$(IntermediateOutputPath)pnglibconf.h"</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Generating pnglibconf.h...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,15 +127,19 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\3rdparty\libpng;$(SolutionDir)..\3rdparty\zlib;$(IntermediateOutputPath)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PNG_NO_SETJMP;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntermediateOutputPath);$(SolutionDir)..\3rdparty\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libpng.lib;zlib.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);$(OutDir)..\..\..\zlib\$(ConfigurationName)\$(PlatformName)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\3rdparty\libpng\scripts\pnglibconf.h.prebuilt" "$(IntermediateOutputPath)pnglibconf.h"</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Generating pnglibconf.h...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -133,17 +149,19 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\3rdparty\libpng;$(SolutionDir)..\3rdparty\zlib;$(IntermediateOutputPath)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PNG_NO_SETJMP;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntermediateOutputPath);$(SolutionDir)..\3rdparty\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>libpng.lib;zlib.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);$(OutDir)..\..\..\zlib\$(ConfigurationName)\$(PlatformName)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\3rdparty\libpng\scripts\pnglibconf.h.prebuilt" "$(IntermediateOutputPath)pnglibconf.h"</Command>
+      <Message>Generating pnglibconf.h...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,17 +171,19 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\3rdparty\libpng;$(SolutionDir)..\3rdparty\zlib;$(IntermediateOutputPath)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PNG_NO_SETJMP;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntermediateOutputPath);$(SolutionDir)..\3rdparty\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>libpng.lib;zlib.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)..\..\..\libpng\$(ConfigurationName)\$(PlatformName);$(OutDir)..\..\..\zlib\$(ConfigurationName)\$(PlatformName)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\3rdparty\libpng\scripts\pnglibconf.h.prebuilt" "$(IntermediateOutputPath)pnglibconf.h"</Command>
+      <Message>Generating pnglibconf.h...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
